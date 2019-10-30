@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 const mongoose = require('mongoose');
+const { UserModel } = require('./models');
 
 mongoose
   .connect('mongodb+srv://<USER>:<PASSWORD>@<HOSTNAME>/<COLLECTION>', {useNewUrlParser: true})
@@ -10,7 +11,11 @@ mongoose
 
 
 app.get('/', (request, response) => {
-    response.send('Olá, mundo!');
+    UserModel.create({ name: 'Zig1', password:"ironhack2019", job: 'Student' })
+    .then((user) => { 
+        response.send(`Olá, ${user}!`);
+    })
+    .catch(err => { console.log('An error happened:', err) });
 });
 
 app.listen(PORT, (error) => {

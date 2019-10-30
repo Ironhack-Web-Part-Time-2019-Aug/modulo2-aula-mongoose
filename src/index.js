@@ -1,6 +1,13 @@
 const express = require('express');
 const app = express();
 const PORT = 3000;
+const mongoose = require('mongoose');
+
+mongoose
+  .connect('mongodb+srv://<USER>:<PASSWORD>@<HOSTNAME>/<COLLECTION>', {useNewUrlParser: true})
+  .then((mongoConnection) => console.log(`Connected to Mongo! Database name: "${mongoConnection.connections[0].name}"`))
+  .catch(error => console.error('Erro ao conectar com o banco de dados', error));
+
 
 app.get('/', (request, response) => {
     response.send('Olá, mundo!');

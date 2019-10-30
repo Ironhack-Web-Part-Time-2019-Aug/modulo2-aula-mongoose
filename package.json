@@ -16,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/joseluizcoe/modulo2-aula-mongoose/issues"
   },
-  "homepage": "https://github.com/joseluizcoe/modulo2-aula-mongoose#readme"
+  "homepage": "https://github.com/joseluizcoe/modulo2-aula-mongoose#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "hbs": "^4.0.6",
+    "mongoose": "^5.7.7"
+  }
 }
